@@ -17,13 +17,16 @@ public class ActivatorIHM implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		refc = context.getServiceReference(Convertisseur.class);
 		
+		// Convertisseur optionnel
 		if (refc == null) {
-			System.out.println("Aucun service Convertisseur disponible.");
+			// System.out.println("Aucun service Convertisseur disponible.");
+			// Convertisseur obligatoire
+			throw new Exception("Aucun service Convertisseur disponible.");
 		} else {
 			c = context.getService(refc);
 			System.out.println("Service de type Convertisseur disponible");
 		}
-		
+
 		ihm = new ConvertisseurFrame("Convertisseur") {
 			@Override
 			protected void closingOperation() {
@@ -40,10 +43,10 @@ public class ActivatorIHM implements BundleActivator {
 	public void stop(BundleContext context) throws Exception {
 		ihm.dispose();
 		ihm = null;
-		if (refc != null) {
+		//if (refc != null) { // Pas besoin du if si Convertisseur obligatoire
 			c = null;
 			context.ungetService(refc);
-		}
+		//}
 	}
 
 }
