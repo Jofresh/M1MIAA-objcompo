@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ConvertisseurIHM
+Bundle-SymbolicName: ConvertisseurIHM
+Bundle-Version: 1.0.2
+Bundle-Activator: convertisseurihm.ActivatorIHM
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: contratconvertisseur,
+ convertisseurframe,
+ org.osgi.framework;version="1.3.0"
+Automatic-Module-Name: ConvertisseurIHM
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: GG

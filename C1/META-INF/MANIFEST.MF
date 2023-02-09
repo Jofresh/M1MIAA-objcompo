@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: C1
+Bundle-SymbolicName: C1
+Bundle-Version: 1.0.0
+Bundle-Activator: c1.ActivatorC1
+Bundle-Vendor: GG
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: Types,
+ org.osgi.framework;version="1.3.0"
+Automatic-Module-Name: C1
+Bundle-ActivationPolicy: lazy

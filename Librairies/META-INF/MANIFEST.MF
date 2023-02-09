@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Librairies
+Bundle-SymbolicName: Librairies
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: Librairies
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-ClassPath: ContratConvertisseur_1.0.0.jar,
+ ConvertisseurFrame_1.0.0.jar,
+ .
+Export-Package: contratconvertisseur,
+ convertisseurframe

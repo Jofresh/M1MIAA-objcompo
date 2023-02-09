@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ConvertisseurFahrenheitCelsius
+Bundle-SymbolicName: ConvertisseurFahrenheitCelsius
+Bundle-Version: 1.0.2
+Bundle-Activator: convertisseurfahrenheitcelsius.ActivatorConvServeur2
+Bundle-Vendor: GG
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: contratconvertisseur,
+ org.osgi.framework;version="1.3.0"
+Automatic-Module-Name: ConvertisseurFahrenheitCelsius
+Bundle-ActivationPolicy: lazy

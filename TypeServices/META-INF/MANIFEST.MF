@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TypeServices
+Bundle-SymbolicName: TypeServices
+Bundle-Version: 1.0.0
+Automatic-Module-Name: TypeServices
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: Types
