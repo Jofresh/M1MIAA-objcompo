@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: C1dynamique
+Bundle-SymbolicName: C1dynamique
+Bundle-Version: 1.0.0
+Bundle-Activator: c1dynamique.Activator
+Bundle-Vendor: GG
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: Types,
+ org.osgi.framework;version="1.3.0"
+Automatic-Module-Name: C1dynamique
+Bundle-ActivationPolicy: lazy
