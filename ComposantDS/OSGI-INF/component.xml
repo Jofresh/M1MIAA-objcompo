@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="start" name="ComposantInterneDS">
+   <implementation class="sources.ComponentInterneImpl"/>
+   <property name="langue" type="String" value="fr"/>
+   <service>
+      <provide interface="Types.TypeService1"/>
+      <provide interface="java.lang.Runnable"/>
+   </service>
+   <reference bind="setLien" cardinality="1..1" interface="Types.TypeService2" name="I1" policy="static"/>
+</scr:component>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ComposantDS
+Bundle-SymbolicName: ComposantDS
+Bundle-Version: 1.0.0
+Bundle-Vendor: GG
+Automatic-Module-Name: ComposantDS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/component.xml
+Require-Bundle: TypeServices
