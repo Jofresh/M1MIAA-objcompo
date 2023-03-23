@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: C1_DS
+Bundle-SymbolicName: C1_DS
+Bundle-Version: 1.0.0
+Import-Package: Types,
+ org.osgi.framework;version="1.10.0",
+ org.osgi.service.component;version="1.4.0"
+Service-Component: META-INF/component.xml
+Bundle-Vendor: GG
+Automatic-Module-Name: C1.DS
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
