@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ConvertisseurTemps
+Bundle-SymbolicName: ConvertisseurTemps
+Bundle-Version: 1.0.0
+Bundle-Vendor: GG
+Automatic-Module-Name: ConvertisseurTemps
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: contratconvertisseur,
+ org.osgi.framework;version="1.10.0"
+Service-Component: ComposantInterneTemps.xml
+Bundle-ActivationPolicy: lazy

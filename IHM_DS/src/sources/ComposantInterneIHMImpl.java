@@ -28,15 +28,20 @@ public class ComposantInterneIHMImpl {
 	}
 	
 	public void deactivate() {
-		
+		ihm.dispose();
 	}
 	
-	public void setLien(Convertisseur os) {
+	// TODO
+	// public void setLien(ServiceReference<Convertisseur> ref)
+	public void setLien(Convertisseur os/*, ou Map<> props*/) {
 		c = os;
 		ihm.setConvertisseur(c);
 	}
 	
-	public void unsetLien(ServiceReference<?> ref) {
-		
+	public void unsetLien(ServiceReference<?> os) {
+		if (c.equals(os)) {
+			c = null;
+			ihm.setConvertisseur(c);
+		}
 	}
 }

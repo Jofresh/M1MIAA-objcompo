@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IHM_DS2
+Bundle-SymbolicName: IHM_DS2
+Bundle-Version: 1.1.2
+Bundle-Vendor: GG
+Automatic-Module-Name: IHM.DS2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: ComposantInterneTemps.xml
+Import-Package: contratconvertisseur,
+ convertisseurframe,
+ org.osgi.framework;version="1.10.0"
+Bundle-ActivationPolicy: lazy

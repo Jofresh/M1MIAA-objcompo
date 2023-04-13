@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="setLien" name="IHM_DS">
-   <implementation class="ComposantInterneIHMImpl"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="IHM_DS2">
+   <implementation class="sources.ComposantInterneIHMImpl"/>
    <reference bind="setLien" cardinality="0..1" interface="contratconvertisseur.Convertisseur" name="c" policy="dynamic" unbind="unsetLien"/>
    <property name="temps" type="Integer" value="50"/>
 </scr:component>
