@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" activate="start" deactivate="stop" modified="update" name="NomComposant">
+   <property name="Langue" value="FR"/>
+   <service>
+      <provide interface="java.lang.Runnable"/>
+      <provide interface="java.io.Serializable"/>
+   </service>
+   <reference bind="setLien" cardinality="0..1" field="service" interface="java.lang.Runnable" name="service" policy="dynamic" target="(Langue=*)" unbind="unsetLien"/>
+   <reference cardinality="0..n" field="services" interface="java.lang.Runnable" name="services"/>
+   <implementation class="sources.ComposantAnnotationsImpl"/>
+</scr:component>
