@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ConvertisseurDistanceAnnotations
+Bundle-SymbolicName: ConvertisseurDistanceAnnotations
+Bundle-Version: 1.0.0
+Bundle-Vendor: GG
+Automatic-Module-Name: ConvertisseurDistanceAnnotations
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: contratconvertisseur
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/ConvertisseurDistance.xml

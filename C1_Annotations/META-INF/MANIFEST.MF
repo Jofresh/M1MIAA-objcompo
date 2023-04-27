@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: C1_Annotations
+Bundle-SymbolicName: C1_Annotations
+Bundle-Version: 1.0.0
+Bundle-Vendor: GG
+Automatic-Module-Name: C1.Annotations
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/C1Anno.xml

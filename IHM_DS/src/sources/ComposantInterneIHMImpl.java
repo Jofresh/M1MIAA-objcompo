@@ -38,7 +38,7 @@ public class ComposantInterneIHMImpl {
 		ihm.setConvertisseur(c);
 	}
 	
-	public void unsetLien(ServiceReference<?> os) {
+	public void unsetLien(Convertisseur os) {
 		if (c.equals(os)) {
 			c = null;
 			ihm.setConvertisseur(c);

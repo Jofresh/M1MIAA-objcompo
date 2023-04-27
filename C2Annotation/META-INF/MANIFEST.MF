@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: C2Annotation
+Bundle-SymbolicName: C2Annotation
+Bundle-Version: 1.0.0
+Bundle-Vendor: GG
+Automatic-Module-Name: C2Annotation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: Types
+Service-Component: OSGI-INF/C2.xml

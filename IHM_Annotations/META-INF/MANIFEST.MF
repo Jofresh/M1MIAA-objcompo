@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IHM_Annotations
+Bundle-SymbolicName: IHM_Annotations
+Bundle-Version: 1.0.0
+Bundle-Vendor: GG
+Automatic-Module-Name: IHM.Annotations
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: contratconvertisseur,
+ convertisseurframe,
+ org.osgi.framework;version="1.10.0"
+Service-Component: OSGI-INF/IHMAnnotations.xml
+Bundle-ActivationPolicy: lazy
