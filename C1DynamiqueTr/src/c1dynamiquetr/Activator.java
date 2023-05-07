@@ -48,10 +48,12 @@ public class Activator implements BundleActivator {
 					a = null;
 					context.ungetService(refa);
 					
+					// On cherche s'il y a un autre service
 					try {
 						chercherService();
 					} catch (Exception e) {
-						context.getBundle().stop();
+						// Dans le cas où aucun service n'a été trouvé, on stoppe le composant.
+						context.getBundle().stop(); // peut throws une `BundleException`
 					}
 				}
 			}
@@ -75,10 +77,8 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void stop(BundleContext bundleContext) throws Exception {
-		a = null;
-		refa = null;
+		context.ungetService(refa);
 		traqueur.close();
-		context = null;
 	}
 
 	
