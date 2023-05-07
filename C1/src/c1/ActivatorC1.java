@@ -9,25 +9,30 @@ import Types.TypeService1;
 public class ActivatorC1 implements BundleActivator {
 	private ServiceReference<TypeService1> refa;
 	private TypeService1 a;
-	
+
+	@Override
 	public void start(BundleContext context) throws Exception {
 		refa = context.getServiceReference(TypeService1.class);
-
+		
 		if (refa == null) {
-			throw new Exception("Service de type TypeService1 non disponible.");
+			throw new Exception("Aucun service TypeService1 trouvé.");
 		}
 		
-		/*
-		while (refa == null) {
-			refa = context.getServiceReference(TypeService1.class);
-		}
-		*/
+		/**
+		 *	Autre solution : attendre qu'on trouve un service.
+		 * 
+		 *	while (refa == null) {
+		 *		refa = context.getServiceReference(TypeService1.class);
+		 *	}
+		 */
 		
 		a = context.getService(refa);
-		System.out.println("Service de type TypeService1 OK");
 	}
 
+	@Override
 	public void stop(BundleContext context) throws Exception {
+		a = null;
 		context.ungetService(refa);
+		refa = null;
 	}
 }
