@@ -9,79 +9,74 @@ import org.osgi.framework.ServiceReference;
 
 import Types.TypeService1;
 
-public class Activator implements BundleActivator {
-
-	private static BundleContext context;
-	
+public class Activator implements BundleActivator, ServiceListener {
+	private BundleContext context;
 	private ServiceReference<TypeService1> refa;
 	private TypeService1 a;
 	
-	private Ecouteur ec;
-
+	@Override
 	public void start(BundleContext bundleContext) throws Exception {
 		context = bundleContext;
-		ec = new Ecouteur();
-		context.addServiceListener(ec);
-		rechercheService();
+		context.addServiceListener(this);
+		chercherService();
+	}
+
+	@Override
+	public void stop(BundleContext bundleContext) throws Exception {
+		context.ungetService(refa);
+		context.removeServiceListener(this);
 	}
 	
-	private void rechercheService() throws Exception {
+	public void chercherService() throws Exception {
 		refa = context.getServiceReference(TypeService1.class);
-
+		
 		if (refa == null) {
-			context.removeServiceListener(ec);
-			throw new Exception("Service de type TypeService1 non disponible.");
+			context.removeServiceListener(this);
+			throw new Exception("Aucun TypeService1 trouvé.");
 		}
 		
 		a = context.getService(refa);
-		System.out.println("Service de type TypeService1 OK");
 	}
 
-	public void stop(BundleContext bundleContext) throws Exception {
-		context.ungetService(refa);
-		context.removeServiceListener(ec);
-	}
-
-	private class Ecouteur implements ServiceListener {
-		@Override
-		public void serviceChanged(ServiceEvent event) {
-			ServiceReference<?> r = event.getServiceReference();
-			String[] objectClasses = (String[]) r.getProperty("objectClass");
-			
-			if (objectClasses[0].equals(TypeService1.class.getName())) {
-				ServiceReference<TypeService1> sr = (ServiceReference<TypeService1>) r;
-				
-				switch (event.getType()) {
-					case ServiceEvent.REGISTERED:
-						traitementNouveauService(sr);
-						break;
-					case ServiceEvent.MODIFIED:
-						traitementModificationService(sr);
-						break;
-					case ServiceEvent.UNREGISTERING:
-						traitementDepartService(sr);
-				}
+	@Override
+	public void serviceChanged(ServiceEvent event) {
+		ServiceReference<?> r = event.getServiceReference();
+		String[] objectClasses = (String[]) r.getProperty("objectClass");
+		
+		if (objectClasses[0].equals(TypeService1.class.getName())) {
+			ServiceReference<TypeService1> sr = (ServiceReference<TypeService1>) r;
+			switch (event.getType()) {
+				case ServiceEvent.REGISTERED:
+					traitementNouveauService(sr);
+					break;
+				case ServiceEvent.MODIFIED:
+					traitementModificationService(sr);
+					break;
+				case ServiceEvent.UNREGISTERING:
+					traitementDepartService(sr);
 			}
 		}
-		
-		private void traitementNouveauService(ServiceReference<TypeService1> sr) {
-			// rien à faire
-		}
-		
-		private void traitementModificationService(ServiceReference<TypeService1> sr) {
-			// rien à faire
-		}
-
-		private void traitementDepartService(ServiceReference<TypeService1> sr) {
-			if (sr.equals(refa)) {
-				a = null;
-				context.ungetService(refa);
-				refa = null;
-				try {
-					rechercheService();
-				} catch (Exception e) {
-					context.getBundle().stop(); // lève une exception aussi, pas important à savoir
-				}
+	}
+	
+	public void traitementNouveauService(ServiceReference<TypeService1> sr) {
+		// On a rien à faire, on a déjà un service.
+	}
+	
+	public void traitementModificationService(ServiceReference<TypeService1> sr) {
+		// Idem (Pas de traitement sur les props à ce niveau)
+	}
+	
+	public void traitementDepartService(ServiceReference<TypeService1> sr) {
+		if (refa.equals(sr)) {
+			a = null;
+			context.ungetService(refa);
+			
+			// On cherche s'il y a un autre service
+			try {
+				chercherService();
+			} catch (Exception e) {
+				// Dans le cas où aucun service n'a été trouvé, on stoppe le composant.
+				context.getBundle().stop(); // peut throws une `BundleException`
 			}
 		}
 	}
