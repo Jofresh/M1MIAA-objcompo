@@ -7,4 +7,5 @@ Bundle-Vendor: GG
 Automatic-Module-Name: C1.Annotations
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Service-Component: OSGI-INF/C1Anno.xml
+Service-Component: OSGI-INF/C1.xml
+Import-Package: Types

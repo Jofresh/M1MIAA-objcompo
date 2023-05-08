@@ -3,6 +3,6 @@
    <service>
       <provide interface="Types.TypeService1"/>
    </service>
-   <reference cardinality="0..1" field="c" interface="Types.TypeService2" name="c"/>
+   <reference cardinality="1..1" field="c" interface="Types.TypeService2" name="c"/>
    <implementation class="sources.C2Impl"/>
 </scr:component>
